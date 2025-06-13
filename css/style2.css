@@ -1,0 +1,58 @@
+body{
+  text-align: center;
+}
+.my-styled-button {
+  display: block;
+  border: 1px solid;
+  width: 240px;
+  background-color: white;
+  padding: 10px;
+  margin: 30px auto;
+  border: #29DB5F solid;
+  background-color: #3ff676;
+  border-radius: 8px;
+  color: #16642e;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* ホバー時の滑らかな変化 */
+  margin-top: 250px;
+  font-weight: bold;
+}
+
+.my-styled-button:hover {
+  background-color: rgb(65, 200, 65); /* ホバー時の色変化 */
+}
+
+/* ホワイトアウト用の幕のスタイル */
+.whiteout-overlay {
+    position: fixed; /* 画面に固定するんだ */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #29DB5F;
+    opacity: 0; /* 最初は透明にしておく */
+    visibility: hidden; /* 最初はクリックも効かないように隠しておく */
+    z-index: 9999; /* 他の要素より手前に表示させるための優先順位 */
+    transition: opacity 1s ease-out, visibility 0s 1s; /* アニメーションの時間を定義 */
+    /* opacityは1秒かけて変化、visibilityはopacityの変化が終わってから切り替える */
+}
+
+/* ホワイトアウト開始時のスタイル */
+.whiteout-overlay.active {
+    opacity: 1; /* 不透明にして、画面を白く覆う */
+    visibility: visible; /* 見えるようにする */
+    transition: opacity 0.3s ease-in; /* 変化開始時は少し緩やかに */
+}
+@media screen and (max-width: 768px) {
+  .my-styled-button {
+    width: 100%; /* 小さい画面では幅を100%にして、画面いっぱいに広げるよ */
+    padding: 10px; /* 余裕を持たせて、タップしやすくするよ */
+  }
+}
+@media screen and (max-width: 480px) {
+  .my-styled-button {
+    font-size: 14px; /* 小さい画面ではフォントサイズを少し小さくして、見やすくするよ */
+    padding: 8px; /* 余裕を持たせて、タップしやすくするよ */
+  }
+}

@@ -1,0 +1,173 @@
+/* --- 全体的な設定や共通のスタイル --- */
+body {
+    font-family: sans-serif;        /* 文字のフォントを設定（Didotがないときの代用） */
+    margin: 0;                      /* ブラウザのデフォルトの余白を消す */
+    padding: 20px;                  /* ページの中身に全体的な余白をつける */
+    color: #333;                    /* 文字の色を暗めのグレーに設定（黒より少し柔らかい） */
+}
+.lucky-item-heading{
+    font-weight: bold;              /* 太字で強調 */
+    color: #555;                    /* グレーがかった色で柔らかい印象に */
+    margin-top: 30px;               /* 上の余白を広めに取る */
+    font-size: 2em;
+}
+.item-name{
+    font-weight: bold;              /* 商品名を太字にして目立たせる */
+    color: #0AA81C;                 /* 緑系のカラーで強調 */
+    font-size: 1.7em;               /* フォントサイズを少し大きめに設定 */
+    margin-bottom: 5px;             /* 下に少し余白をつける */
+}
+/* --- ロゴ画像のスタイル --- */
+.logo-image {
+    display: block;                 /* ブロック要素にして中央寄せが効くようにする */
+    margin: 0 auto;                 /* 左右の余白を自動にして中央に配置 */
+    height: auto;                   /* 高さを自動調整（比率を保つ） */
+    max-height: 150px;             /* 最大高さを150pxまでに制限（大きくなりすぎない） */
+    height: 150px;                 /* 高さを固定して表示を安定させる */
+    object-fit: cover;             /* アスペクト比を保ちつつ枠内に収める（切り取りあり） */
+}
+
+/* --- メイン画像のスタイル --- */
+.main-image {
+    display: block;                 /* ブロック要素にする（中央寄せや余白の調整用） */
+    margin: 20px auto;              /* 上下に余白をつけて中央に寄せる */
+    max-width: 100%;               /* 画面の幅を超えないようにする（レスポンシブ対応） */
+    height: auto;                  /* 高さを自動で調整（比率維持） */
+    border-radius: 8px;            /* 角を少し丸くして柔らかい印象にする */
+}
+
+/* --- タイトルや見出しのスタイル --- */
+h1, h2, .lucky-item-heading {
+    text-align: center;            /* 中央にテキストを揃える */
+    margin-bottom: 10px;           /* 下に余白をつけて見やすくする */
+}
+h1 {
+    font-size: 2em;                /* フォントサイズを大きめに設定 */
+    color: #29DB5F;                /* 明るいグリーンで目立たせる */
+}
+h2 {
+    font-size: 1.5em;              /* 少し小さめの見出し */
+    color: #333;                   /* 落ち着いた色合いに */
+}
+.lucky-item-heading {
+    font-weight: bold;            /* 太字で強調 */
+    color: #555;                   /* グレーがかった色で柔らかい印象に */
+    margin-top: 30px;              /* 上の余白を広めに取る */
+}
+
+/* --- 商品セクションのコンテナ --- */
+.shouhin {
+    display: flex;                 /* Flexboxで横並びにする */
+    flex-direction: row;          /* 横方向に並べる（デフォルトだが明示） */
+    align-items: flex-start;      /* 上端を基準に揃える */
+    justify-content: center;      /* 全体を中央に寄せる */
+    gap: 20px;                     /* 子要素（画像とテキスト）の間に間隔をつける */
+    margin: 30px auto;             /* 上下の余白＋中央寄せ */
+    max-width: 500px;             /* 最大幅を500pxに制限（画面幅が広くてもコンパクトに） */
+    padding: 15px;                 /* 内側に余白をつける */
+    border: 1px solid #eee;       /* 薄いグレーの枠線で囲む */
+    border-radius: 8px;           /* 角を丸くして見やすく */
+    background-color: #fff;       /* 白背景にして清潔感を出す */
+}
+
+/* --- 商品画像を包むラッパー（枠） --- */
+.shouhin-image-wrapper {
+    flex-shrink: 0;               /* 小さくならないように固定する */
+    width: 150px;                 /* 横幅を固定 */
+    height: 300px;                /* 縦幅も固定 */
+    display: flex;                /* 中の画像を中央寄せするためにFlexに */
+}
+.shouhin-image-wrapper img {
+    width: 100%;              /* 親の横幅にぴったり合わせる（横にはみ出さないように） */
+    height: 100%;             /* 親の高さにぴったり合わせる（縦にもぴったり収める） */
+    object-fit: contain;        /* 画像の縦横比を保ちつつ、枠に収めて余白や引き伸ばしを防ぐ */
+    background: #fff; /* 余白部分の背景色（必要に応じて変更可） */
+    display: block;           /* 画像の下に余計な余白ができるのを防ぐ（インライン要素からブロックに変更） */
+}
+
+/* --- 商品詳細（テキスト）のコンテナ --- */
+.shouhin-details {
+    display: flex;                /* 子要素をFlexで並べる */
+    flex-direction: column;      /* 縦に並べる（タイトル→本文） */
+    justify-content: flex-start; /* 上から順に配置 */
+    flex-grow: 1;                /* 余ったスペースをすべて使って広がる */
+}
+
+/* --- 商品名（h3）のスタイル --- */
+.shouhin-details h3 {
+    margin-top: 0;               /* 上の余白をリセット（見出しが詰まらないように） */
+    margin-bottom: 10px;         /* 下に余白をつけて読みやすくする */
+    font-size: 1.1em;            /* 少し大きめのフォントサイズ */
+    color: #0AA81C;              /* 緑系のカラーで強調 */
+    line-height: 1.6;            /* 行間を広めにして読みやすく */
+    text-align: center;          /* 中央寄せ */
+}
+
+/* --- 商品説明（pタグ）のスタイル --- */
+.shouhin-details p {
+    flex-grow: 1;                /* 可能な限り縦に広がるようにする */
+    border-top: 1px solid #076713; /* 上に線を引いて区切る（色も指定） */
+    padding: 10px;               /* 内側の余白を調整 */
+    margin-top: 0;               /* 上の外側の余白をなくす */
+    text-align: center;          /* 中央寄せで読みやすく */
+    font-size: 0.9em;            /* 少し小さめで上品に */
+    color: #076713;              /* 緑系の色で統一感を出す */
+    padding-top: 16px;           /* 上側の余白だけ少し広めにする */
+}
+
+/* --- 商品内の画像のスタイル（クリック可能） --- */
+.shouhin-details img {
+    border-radius: 8px;          /* 画像の角を丸くする */
+    height: 4em;                 /* 高さをem単位で指定（レスポンシブ） */
+    width: 5em;                  /* 幅もemで指定 */
+    cursor: pointer;             /* ホバー時にポインター（クリックできそうな表示） */
+    max-width: 100%;             /* 枠からはみ出さないように */
+    object-fit: contain;           /* 枠に収めて見栄えよく表示 */
+    display: block;              /* 余計な隙間をなくすためにブロック化 */
+    margin-bottom: 20px;         /* 下に余白をつける */
+    transition: transform 0.3s;  /* 拡大アニメーションを滑らかに */
+}
+
+/* --- 商品画像のホバーエフェクト --- */
+.shouhin-details img:hover {
+    transform: scale(1.05);      /* マウスを乗せたときに少し大きく見せる */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 影を付けて立体感を出す */
+}
+
+/* --- Twitterリンクボタンのスタイル --- */
+.twitter-link {
+    padding: 10px;               /* 内側に余白 */
+    margin: 0 auto;              /* 横方向の中央寄せ */
+}
+@media screen and (max-width: 768px) {
+    .shouhin {
+        flex-direction: column; /* 小さい画面では縦に並べる */
+        align-items: center;    /* 中央寄せ */
+    }
+    .shouhin-image-wrapper {
+        width: 100%;            /* 画像の幅を100%にして画面いっぱいに */
+        height: auto;           /* 高さは自動調整 */
+    }
+    .shouhin-details {
+        text-align: center;     /* テキストも中央寄せ */
+    }
+    .shouhin-details img {
+        width: 80%;             /* 画像の幅を80%にして余白を持たせる */
+        height: auto;           /* 高さは自動調整 */
+    }
+    
+}
+@media screen and (max-width: 480px) {
+    .shouhin {
+        padding: 10px;          /* 小さい画面では内側の余白を少なく */
+    }
+    .shouhin-image-wrapper {
+        width: 100%;            /* 画像の幅を100%にして画面いっぱいに */
+        height: auto;           /* 高さは自動調整 */
+    }
+    .shouhin-details img {
+        width: 90%;             /* 画像の幅を90%にして余白を持たせる */
+        height: auto;           /* 高さは自動調整 */
+    }
+    
+}
