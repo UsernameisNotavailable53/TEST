@@ -1,39 +1,19 @@
 console.log("script.jsが読み込まれました！");
 const omikujibtn = document.getElementById("nextPageButton");
 const omikujidata = [
-    {   "name":"大吉",
-        "htmlFile": "../omikuji/daikiti1.html"},
-    {
-        "name":"大凶",
-        "htmlFile": "../omikuji/daikyo1.html"},
-    {
-        "name":"大吉",
-        "htmlFile": "../omikuji/daikiti2.html"},
-    {
-        "name":"大凶",
-        "htmlFile": "../omikuji/daikyo2.html"},
-    {
-        "name":"大吉",
-        "htmlFile": "../omikuji/daikiti3.html"},
-    {
-        "name":"大凶",
-        "htmlFile": "../omikuji/daikyo3.html"},
-    {
-        "name":"大吉",
-        "htmlFile": "../omikuji/daikiti4.html"},
-    {
-        "name":"大吉",
-        "htmlFile": "../omikuji/daikiti5.html"},
-    {
-        "name":"大凶",
-        "htmlFile": "../omikuji/daikyo4.html"},
-    {
-        "name":"大凶",
-        "htmlFile": "../omikuji/daikyo5.html"},
-    {
-        "name":"大吉",
-        "htmlFile": "../omikuji/daikiti6.html"}
-]
+    { name: "大吉", htmlFile: "/TEST/omikuji/daikiti1.html" },
+    { name: "大凶", htmlFile: "/TEST/omikuji/daikyo1.html" },
+    { name: "大吉", htmlFile: "/TEST/omikuji/daikiti2.html" },
+    { name: "大凶", htmlFile: "/TEST/omikuji/daikyo2.html" },
+    { name: "大吉", htmlFile: "/TEST/omikuji/daikiti3.html" },
+    { name: "大凶", htmlFile: "/TEST/omikuji/daikyo3.html" },
+    { name: "大吉", htmlFile: "/TEST/omikuji/daikiti4.html" },
+    { name: "大吉", htmlFile: "/TEST/omikuji/daikiti5.html" },
+    { name: "大凶", htmlFile: "/TEST/omikuji/daikyo4.html" },
+    { name: "大凶", htmlFile: "/TEST/omikuji/daikyo5.html" },
+    { name: "大吉", htmlFile: "/TEST/omikuji/daikiti6.html" }
+];
+
 function drawomikuji(){
     const random = Math.floor(Math.random() * omikujidata.length); // omikujiresultではなくomikujidataの長さを参照
     const resultData = omikujidata[random];
